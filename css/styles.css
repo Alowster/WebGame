@@ -18,13 +18,16 @@ body {
     height: 850px;
 }
 
-#fondo {
-    background-image: url("https://raw.githubusercontent.com/Alowster/img/refs/heads/main/seamless-urban-plan-map_70347-3332.png");
-    background-size: auto;
-
+#imagenFondo {
+    background-color: rgb(70, 128, 253);
+    background-image: url("https://raw.githubusercontent.com/Alowster/img/refs/heads/main/bgcampo.png");
     position: absolute;
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: repeat-x;
     width: 1800px;
     height: 850px;
+    
 }
 
 #jugador {
@@ -39,7 +42,7 @@ body {
     position: absolute;
     width: 200px;
     height: 170px;
-    top: 40%;
+    top: 69%;
     left: 46%;
 
 }

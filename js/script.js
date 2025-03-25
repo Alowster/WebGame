@@ -4,8 +4,8 @@ const area = document.getElementById('pantalla');
 let jugadorX = 200;
 let jugadorY = 200;
 let angle = 0; // Ángulo de rotación en grados
-const speed = 4;
-const rotationSpeed = 5; // Velocidad de giro
+const speed = 2.2;
+const rotationSpeed = 1.1; // Velocidad de giro
 
 const gameWidth = area.offsetWidth;
 const gameHeight = area.offsetHeight;
@@ -26,10 +26,8 @@ function animate() {
     }
 
     // Mover la nave en la dirección en la que apunta
-    if (keys['w'] || keys['W']) {
-        dx = Math.cos(angle * Math.PI / 180) * speed;
-        dy = Math.sin(angle * Math.PI / 180) * speed;
-    }
+    dx = Math.cos(angle * Math.PI / 180) * speed;
+    dy = Math.sin(angle * Math.PI / 180) * speed;
 
     let nextX = jugadorX + dx;
     let nextY = jugadorY + dy;
@@ -56,3 +54,15 @@ document.addEventListener('keyup', (e) => keys[e.key] = false);
 
 // Iniciar animación
 requestAnimationFrame(animate);
+
+
+// function checkCollision(elementOne, elementTwo) { 
+//     const rectOne = elementOne.getBoundingClientRect();
+//     const rectTwo = elementTwo.getBoundingClientRect();
+//     return !(
+//         rectOne.right < rectTwo.left || 
+//         rectOne.left > rectTwo.right || 
+//         rectOne.bottom < rectTwo.top || 
+//         rectOne.top > rectTwo.bottom
+//     );
+// }
