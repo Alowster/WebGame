@@ -3,9 +3,8 @@ const area = document.getElementById('pantalla');
 
 let jugadorX = 200;
 let jugadorY = 200;
-let angle = 0; // Ángulo de rotación en grados
-const speed = 2.2;
-const rotationSpeed = 1.1; // Velocidad de giro
+const speedx = 2;
+const speedy = 1;
 
 const gameWidth = area.offsetWidth;
 const gameHeight = area.offsetHeight;
@@ -18,17 +17,20 @@ function animate() {
     let dy = 0;
 
     // Rotar la nave
-    if (keys['a'] || keys['A']) {
-        angle -= rotationSpeed;
+    if (keys['ArrowLeft']) {
+        dx -= speedx;
     }
-    if (keys['d'] || keys['D']) {
-        angle += rotationSpeed;
+    if (keys['ArrowRight']) {
+        dx += speedx;
+    }
+    if (keys['ArrowUp']) {
+        dy -= speedy;
+    }
+    if (keys['ArrowDown']) {
+        dy += speedy;
     }
 
-    // Mover la nave en la dirección en la que apunta
-    dx = Math.cos(angle * Math.PI / 180) * speed;
-    dy = Math.sin(angle * Math.PI / 180) * speed;
-
+    
     let nextX = jugadorX + dx;
     let nextY = jugadorY + dy;
 
@@ -36,14 +38,13 @@ function animate() {
     if (nextX < 0) nextX = 0;
     if (nextX > gameWidth - jugadorSize) nextX = gameWidth - jugadorSize;
     if (nextY < 0) nextY = 0;
-    if (nextY > gameHeight - jugadorSize) nextY = gameHeight - jugadorSize;
+    if (nextY > 705) nextY = 705;
 
     // Aplicar movimiento y rotación
     jugadorX = nextX;
     jugadorY = nextY;
     jugador.style.left = jugadorX + 'px';
     jugador.style.top = jugadorY + 'px';
-    jugador.style.transform = `rotate(${angle}deg)`;
 
     requestAnimationFrame(animate);
 }
