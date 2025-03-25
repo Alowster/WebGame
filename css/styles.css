@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     display: flex;
     justify-content: center;
@@ -7,31 +7,45 @@ body{
     background-color: black;
 }
 
-#marco{
+#marco {
     background-color: rgba(23, 0, 156, 0.212);
-    border: 2px white solid;
-    border-radius: 20px;    
+    border: 5px rgb(255, 206, 43) solid;
 }
-#pantalla{
 
+#pantalla {
     position: relative; 
     width: 1800px;
     height: 850px;
 }
 
-#jugador{
+#fondo {
+    background-image: url("https://raw.githubusercontent.com/Alowster/img/refs/heads/main/seamless-urban-plan-map_70347-3332.png");
+    background-size: auto;
+
+    position: absolute;
+    width: 1800px;
+    height: 850px;
+}
+
+#jugador {
     position: absolute;
     width: 50px;
     height: 50px;
     background-color: red;
+    z-index: 1;
 }
 
 #base {
     position: absolute;
-    width: 100px;
-    height: 100px;
-    background-color: green;
-    top: 45%;
-    left: 49%;
+    width: 200px;
+    height: 170px;
+    top: 40%;
+    left: 46%;
+
+}
+
+#castillo {
+    width: 100%;
+
 
 }
