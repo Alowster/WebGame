@@ -56,3 +56,14 @@ body {
 img {
     image-rendering: pixelated;
 }
+
+.bullet {
+    width: 20px;
+    height: 10px;
+    background-color: rgb(20, 255, 204);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    
+}
+  
