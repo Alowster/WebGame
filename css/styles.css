@@ -66,4 +66,12 @@ img {
     transform: translateX(-50%);
     
 }
-  
+
+#ground {
+    position: absolute;
+    width: 1800px;
+    height: 100px;
+    bottom: 0;
+    left: 0;
+    background-color: green;    
+}
