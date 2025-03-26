@@ -1,3 +1,5 @@
+const bulletVelocity = 2.5;
+
 function keyPress () {
     if(keys['e']) {
         shoot();
@@ -23,7 +25,7 @@ function shoot() {
 
     function moveBullet() {
         let topPos = parseInt (bullet.style.top) || 0;
-        bullet.style.top = (topPos + 5) + 'px';
+        bullet.style.top = (topPos + bulletVelocity) + 'px';
         requestAnimationFrame(moveBullet);
     }
     requestAnimationFrame(moveBullet);
@@ -42,25 +44,23 @@ function checkCollision(elementOne, elementTwo) {
 }
 
 function bulletDelete(bullet) {
-    setTimeout(() => {
-        bullet.remove();
-        console.log("Deleted bullet");
-    }, 3000);
 
     const collider = document.getElementById("ground");
 
     setInterval(() => {
         if (checkCollision(bullet, collider)) {
             console.log("¡Colisión detectada!");
+            createExplosion(bullet);
             bullet.remove();
-            //(la animacion)
         }
-    }, 50); 
+    }, 30); 
+
 }
+
 
 // Eventos de teclado
 document.addEventListener('keydown', (e) => keys[e.key] = true);
 document.addEventListener('keyup', (e) => keys[e.key] = false);
 
 // Disparar cada 50 milisegundos
-setInterval(keyPress, 700);
+setInterval(keyPress, 600);

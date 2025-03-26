@@ -1,3 +1,8 @@
+:root{
+    --explosion-size: 3;
+
+}
+
 body {
     margin: 0;
     display: flex;
@@ -49,8 +54,6 @@ body {
 
 #castillo {
     width: 100%;
-
-
 }
 
 img {
@@ -59,8 +62,9 @@ img {
 
 .bullet {
     width: 20px;
-    height: 10px;
-    background-color: rgb(20, 255, 204);
+    height: 20px;
+    background-color: rgb(255, 0, 242);
+    border-radius: 50px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -73,5 +77,29 @@ img {
     height: 100px;
     bottom: 0;
     left: 0;
-    background-color: green;    
+
+ 
+}
+
+.explosion {
+    width: calc(30px * var(--explosion-size));
+    height: calc(30px * var(--explosion-size));
+    position: absolute;
+
+    transform: translate3d(-50%,-70%,0);
+    overflow: hidden;
+}
+
+.explosion_spriteSheet {
+    animation: explosion 1s steps(4);
+    width: calc(120px * var(--explosion-size));
+    height: calc(30px * var(--explosion-size));
+}
+
+@keyframes explosion  {
+    from {
+        transform: translate3d(0,0,0);
+    }to {
+        transform: translate3d(-100%,0,0);
+    }
 }
