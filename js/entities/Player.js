@@ -20,9 +20,11 @@ function animate() {
     // Rotar la nave
     if (keys['ArrowLeft']) {
         dx -= speedx;
+        helicopterLeft();
     }
     if (keys['ArrowRight']) {
         dx += speedx;
+        helicopterRight()
     }
     if (keys['ArrowUp']) {
         dy -= speedy;

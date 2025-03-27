@@ -1,6 +1,8 @@
 :root{
-    --explosion-size: 3;
+    --explosion-sizeX: 2.8;
+    --explosion-sizeY: 3;
 
+    --jugador-size:4;
 }
 
 body {
@@ -37,10 +39,11 @@ body {
 
 #jugador {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: red;
+    width: calc(40px * var(--jugador-size));
+    height: calc(20px * var(--jugador-size));
+    /* background-color: red; */
     z-index: 1;
+    overflow:hidden ;
 }
 
 #base {
@@ -77,28 +80,61 @@ img {
     height: 100px;
     bottom: 0;
     left: 0;
-
- 
 }
 
 .explosion {
-    width: calc(30px * var(--explosion-size));
-    height: calc(30px * var(--explosion-size));
+    width: calc(30px * var(--explosion-sizeX));
+    height: calc(30px * var(--explosion-sizeY));
     position: absolute;
     transform: translate3d(-50%,-70%,0);
     overflow: hidden;
+    /* background-color: rgba(255, 0, 0, 0.50); */
 }
 
 .explosion_spriteSheet {
     animation: explosion 0.6s steps(4);
-    width: calc(120px * var(--explosion-size));
-    height: calc(30px * var(--explosion-size));
+    width: calc(130px * var(--explosion-sizeX));
+    height: calc(30px * var(--explosion-sizeY));
+}
+
+#jugador_spriteSheet {
+    animation: none 0.5s steps(7);
+    width: calc(280px * var(--jugador-size));
+    height: calc(20px * var(--jugador-size));
+    position: absolute;
+    
+}
+
+
+.jugador_right_spriteSheet {
+    transform: translateX(0%);
+}
+
+.jugador_left_spriteSheet {
+    transform: translateX(-85.9%);
 }
 
 @keyframes explosion  {
     from {
         transform: translate3d(0,0,0);
     }to {
-        transform: translate3d(-104%,0,0);
+        transform: translate3d(-105%,0,0);
+    }
+}
+
+@keyframes rotateRight {
+    from {
+        transform: translateX(-85.9%);
+    }
+    to {
+        transform: translateX(14.2%);
+    }
+}
+
+@keyframes rotateLeft {
+    from {
+        transform: translateX(0%);
+    }to {
+        transform: translateX(-100%);
     }
 }

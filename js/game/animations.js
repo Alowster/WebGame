@@ -22,3 +22,26 @@ function createExplosion(bullet) {
         explosion.remove();
     }, 600);
 }
+
+let div = document.getElementById('jugador_spriteSheet');
+
+function helicopterRight(){
+        cambiarAnimacion('rotateRight');
+
+        div.classList.remove('jugador_left_spriteSheet');
+        div.classList.add('jugador_right_spriteSheet');
+
+}
+
+function helicopterLeft(){
+    cambiarAnimacion('rotateLeft');
+
+    div.classList.remove('jugador_right_spriteSheet');
+    div.classList.add('jugador_left_spriteSheet');
+
+}
+
+function cambiarAnimacion(animacion) {
+    div.style.animationName = animacion;
+}
+ 

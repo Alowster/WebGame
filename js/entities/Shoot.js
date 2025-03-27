@@ -1,11 +1,5 @@
 const bulletVelocity = 2.5;
 
-function keyPress () {
-    if(keys['e'] || keys['E']) {
-        shoot();
-    }
-}
-
 function shoot() {
     console.log('Disparando...');
 
@@ -53,7 +47,7 @@ function bulletDelete(bullet) {
             createExplosion(bullet);
             bullet.remove();
         }
-    }, 30); 
+    }, 20); 
 
 }
 
