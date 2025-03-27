@@ -1,7 +1,7 @@
 const bulletVelocity = 2.5;
 
 function keyPress () {
-    if(keys['e']) {
+    if(keys['e'] || keys['E']) {
         shoot();
     }
 }
@@ -18,7 +18,7 @@ function shoot() {
     bullet.classList.add('bullet');
 
     // Posiciona la bala dentro del jugador
-    bullet.style.top = jugador.offsetTop + 'px';
+    bullet.style.top = (jugador.offsetTop + (jugador.clientHeight /2 )) + 'px';
     bullet.style.left = (jugador.offsetLeft + (jugador.clientWidth / 2)) + 'px';
 
     constrait.appendChild(bullet);
@@ -62,4 +62,4 @@ document.addEventListener('keydown', (e) => keys[e.key] = true);
 document.addEventListener('keyup', (e) => keys[e.key] = false);
 
 // Disparar cada 50 milisegundos
-setInterval(keyPress, 600);
+setInterval(keyPress, 700);

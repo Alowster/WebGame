@@ -17,8 +17,8 @@ function createExplosion(bullet) {
     image.classList.add('explosion_spriteSheet');
     explosion.appendChild(image);
 
-
+//eliminar explosion
     setTimeout(() => {
         explosion.remove();
-    }, 1000);
+    }, 600);
 }
