@@ -53,11 +53,11 @@ body {
     top: 69%;
     left : 44.5%;
 
-
 }
 
 #castillo {
     width: 100%;
+    background-color: rgb(8, 255, 255, 0.5);    
 }
 
 img {
@@ -116,29 +116,29 @@ img {
 
 .enemyRight {
     position: absolute;
-    width: 50px;
+    width: 100px;
     height: 50px;
-    left: 100%;
+    left: 94.5%;
     top: 78%;
-    animation: enemyRight 6s infinite;
+
 }
 
 .enemyLeft {
     position: absolute;
-    width: 50px;
+    width: 100px;
     height: 50px;
-    right: 100%;
-    top: 70%;
-    animation: enemyLeft 6s infinite;
+    left: 0%;
+    top: 78%;
+
 }
 
-@keyframes enemyRight  {
+/* @keyframes enemyRight  {
     from {
         transform: translateX(0%);
     }to {
         transform: translateX(-450%);
     }to {
-        transform: translateX(-900%);
+        transform: translateX(-2000%);
     }
 }
 
@@ -150,7 +150,7 @@ img {
     }to {
         transform: translateX(900%);
     }
-}
+} */
 
 @keyframes explosion  {
     from {

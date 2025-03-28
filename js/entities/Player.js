@@ -51,9 +51,6 @@ function animate() {
         nextY = 685
     }
 
-    // if (checkCollision(jugador, collider)){
-         
-    // }
 
     // Aplicar movimiento y rotación
     jugadorX = nextX;

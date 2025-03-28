@@ -2,7 +2,6 @@ function createExplosion(bullet) {
 
     const pantalla = document.getElementById('pantalla');
 
-
     console.log("createExplosio");
     const explosion = document.createElement('div');
     explosion.classList.add('explosion');
@@ -44,4 +43,3 @@ function helicopterLeft(){
 function cambiarAnimacion(animacion) {
     div.style.animationName = animacion;
 }
- 

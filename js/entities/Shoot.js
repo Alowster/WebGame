@@ -3,8 +3,7 @@ const bulletVelocity = 2.5;
 function shoot() {
     console.log('Disparando...');
 
-    const constrait = document.getElementById('pantalla');
-    if(!constrait) return;
+    const pantalla = document.getElementById('pantalla');
 
     const jugador = document.getElementById('jugador');
 
@@ -15,7 +14,7 @@ function shoot() {
     bullet.style.top = (jugador.offsetTop + (jugador.clientHeight /2 )) + 'px';
     bullet.style.left = (jugador.offsetLeft + (jugador.clientWidth / 2)) + 'px';
 
-    constrait.appendChild(bullet);
+    pantalla.appendChild(bullet);
 
     function moveBullet() {
         let topPos = parseInt (bullet.style.top) || 0;
@@ -24,17 +23,6 @@ function shoot() {
     }
     requestAnimationFrame(moveBullet);
     bulletDelete(bullet);
-}
-
-function checkCollision(elementOne, elementTwo) { 
-    const rectOne = elementOne.getBoundingClientRect();
-    const rectTwo = elementTwo.getBoundingClientRect();
-    return !(
-        rectOne.right < rectTwo.left || 
-        rectOne.left > rectTwo.right || 
-        rectOne.bottom < rectTwo.top || 
-        rectOne.top > rectTwo.bottom
-    );
 }
 
 function bulletDelete(bullet) {
@@ -48,12 +36,9 @@ function bulletDelete(bullet) {
             bullet.remove();
         }
     }, 20); 
-
 }
 
 // Eventos de teclado
 document.addEventListener('keydown', (e) => keys[e.key] = true);
 document.addEventListener('keyup', (e) => keys[e.key] = false);
 
-// Disparar cada 50 milisegundos
-setInterval(keyPress, 700);
