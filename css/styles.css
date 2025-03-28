@@ -51,7 +51,8 @@ body {
     width: 200px;
     height: 170px;
     top: 69%;
-    left: 46%;
+    left : 44.5%;
+
 
 }
 
@@ -105,13 +106,50 @@ img {
     
 }
 
-
 .jugador_right_spriteSheet {
     transform: translateX(0%);
 }
 
 .jugador_left_spriteSheet {
     transform: translateX(-85.9%);
+}
+
+.enemyRight {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 100%;
+    top: 78%;
+    animation: enemyRight 6s infinite;
+}
+
+.enemyLeft {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 100%;
+    top: 70%;
+    animation: enemyLeft 6s infinite;
+}
+
+@keyframes enemyRight  {
+    from {
+        transform: translateX(0%);
+    }to {
+        transform: translateX(-450%);
+    }to {
+        transform: translateX(-900%);
+    }
+}
+
+@keyframes enemyLeft  {
+    from {
+        transform: translateX(0%);
+    }to {
+        transform: translateX(450%);
+    }to {
+        transform: translateX(900%);
+    }
 }
 
 @keyframes explosion  {

@@ -3,4 +3,8 @@ function keyPress () {
         shoot();
     }
 
+    if(keys['t'] || keys['T']) {
+        createEnemy();
+    }
+
 }
