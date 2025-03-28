@@ -1,5 +1,6 @@
 const jugador = document.getElementById('jugador');
 const area = document.getElementById('pantalla');
+const collider = document.getElementById("ground");
 
 let jugadorX = 600;
 let jugadorY = 200;
@@ -8,7 +9,7 @@ const speedy = 2;
 
 const gameWidth = area.offsetWidth;
 const gameHeight = area.offsetHeight;
-const jugadorSize = 50;
+const jugadorSize = 155;
 
 let keys = {};
 
@@ -37,8 +38,8 @@ function animate() {
     let nextY = jugadorY + dy;
 
     // Evitar salir de los bordes de la pantalla
-    if (nextX < 0) {
-        nextX = 0
+    if (nextX < -10) {
+        nextX = -10
     }
     if (nextX > gameWidth - jugadorSize) {
         nextX = gameWidth - jugadorSize
@@ -46,9 +47,13 @@ function animate() {
     if (nextY < 0) {
         nextY = 0
     }
-    if (nextY > 705) {
-        nextY = 705
+    if (nextY > 685) {
+        nextY = 685
     }
+
+    // if (checkCollision(jugador, collider)){
+         
+    // }
 
     // Aplicar movimiento y rotación
     jugadorX = nextX;

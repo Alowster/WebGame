@@ -98,7 +98,7 @@ img {
 }
 
 #jugador_spriteSheet {
-    animation: none 0.5s steps(7);
+    animation: none 0.9s steps(7);
     width: calc(280px * var(--jugador-size));
     height: calc(20px * var(--jugador-size));
     position: absolute;
@@ -116,9 +116,9 @@ img {
 
 @keyframes explosion  {
     from {
-        transform: translate3d(0,0,0);
+        transform: translateX(0%);
     }to {
-        transform: translate3d(-105%,0,0);
+        transform: translateX(-105%);
     }
 }
 
