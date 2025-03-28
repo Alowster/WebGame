@@ -3,8 +3,9 @@ function keyPress () {
         shoot();
     }
 
-    if(keys['t'] || keys['T']) {
-        createEnemy();
-    }
-
+    
 }
+
+setInterval( () => {
+    createEnemy();
+},3000);
