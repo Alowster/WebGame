@@ -41,7 +41,7 @@ body {
     position: absolute;
     width: calc(40px * var(--jugador-size));
     height: calc(20px * var(--jugador-size));
-    /* background-color: red; */
+    background-color: red;
     z-index: 1;
     overflow:hidden ;
 }
@@ -57,7 +57,7 @@ body {
 
 #castillo {
     width: 100%;
-    background-color: rgb(8, 255, 255, 0.5);    
+    background-color: rgb(8, 255, 255);    
 }
 
 img {
@@ -89,6 +89,7 @@ img {
     position: absolute;
     transform: translate3d(-50%,-70%,0);
     overflow: hidden;
+    background-color: blue;
 }
 
 .explosion_spriteSheet {
