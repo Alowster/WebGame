@@ -3,7 +3,6 @@ export class Enemy {
         
         this.pantalla = document.getElementById('pantalla');
         this.castillo = document.getElementById('castillo');
-        this.explosion = document.getElementById('explosion');
 
         this.enemy = document.createElement('div');
 
@@ -16,32 +15,33 @@ export class Enemy {
     
         this.pantalla.appendChild(this.enemy);
 
-        this.moveEnemy(this.enemy, 2);
+        this.enemyVelocity = 0.8;
+        this.moveEnemy(this.enemy, this.enemyVelocity);
 
     }
 
     resetPosition(enemy, enemyVelocity) {
         if (this.enemySide === 1) {
             enemy.style.left = "-100px";  
-            // enemy.style.visibility = "hidden";  
+            enemy.style.visibility = "hidden";  
     
             setTimeout(() => {
                 console.log("Enemigo reaparece.");
                 enemy.style.left = "0%";
 
-                // enemy.style.visibility = "visible";  
+                enemy.style.visibility = "visible";  
                 this.randomEnemy(enemy);
                 this.moveEnemy(enemy, enemyVelocity);
             }, this.numeroAleatorio()*1000);
         
         } else if (this.enemySide === 2) {
             enemy.style.left = "105%";  
-            // enemy.style.visibility = "hidden";
+            enemy.style.visibility = "hidden";
 
             setTimeout(() => {
                 console.log("Enemigo reaparece.");
                 enemy.style.left = "97%";
-                // enemy.style.visibility = "visible";
+                enemy.style.visibility = "visible";
                 this.randomEnemy(enemy);
                 this.moveEnemy(enemy, enemyVelocity);
             }, this.numeroAleatorio()*1000);
@@ -59,7 +59,7 @@ export class Enemy {
             enemy.style.left = (enemyPos - enemyVelocity) + 'px';
         }
         
-        if (this.checkCollision(enemy, castillo)) {
+        if (this.checkCollision(enemy, this.castillo)) {
             console.log("Enemigo ha chocado con el castillo.");
     
             this.resetPosition(enemy, enemyVelocity);
@@ -107,9 +107,9 @@ export class Enemy {
         return Math.floor(Math.random() * 4) + 1;
     }
 
-    checkCollision(enemy, castillo) {
-        let rect1 = enemy.getBoundingClientRect();
-        let rect2 = castillo.getBoundingClientRect();
+    checkCollision(obj1, obj2) {
+        let rect1 = obj1.getBoundingClientRect();
+        let rect2 = obj2.getBoundingClientRect();
         return (
             rect1.left < rect2.right &&
             rect1.right > rect2.left &&
@@ -117,5 +117,5 @@ export class Enemy {
             rect1.bottom > rect2.top
         );
     }
-    
+
 }

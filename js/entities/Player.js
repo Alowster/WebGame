@@ -1,3 +1,5 @@
+
+
 export class Player {
     constructor() {
         this.jugador = document.getElementById('jugador');
@@ -18,7 +20,6 @@ export class Player {
 
         document.addEventListener('keydown', (e) => this.keys[e.key] = true);
         document.addEventListener('keyup', (e) => this.keys[e.key] = false);
-
 
     }
 
@@ -72,7 +73,9 @@ export class Player {
 
                 function moveBullet() {
                     let topPos = parseInt (bullet.style.top) || 0;
-                    bullet.style.top = (topPos + 3) + 'px'; //2.5 vel bala
+                    bullet.style.top = (topPos + 3) + 'px'; //3 vel bala
+
+
                     requestAnimationFrame(moveBullet);
                 }
                 requestAnimationFrame(moveBullet);
@@ -83,7 +86,6 @@ export class Player {
     }
 
     bulletDelete(bullet) {
-    
         setInterval(() => {
             if (this.checkCollision(bullet, this.collider)) {
                 console.log("¡Colisión detectada!");
@@ -94,14 +96,14 @@ export class Player {
         }, 20); 
     }
 
-    checkCollision(elementOne, elementTwo) { 
-        const rectOne = elementOne.getBoundingClientRect();
-        const rectTwo = elementTwo.getBoundingClientRect();
-        return !(
-            rectOne.right < rectTwo.left || 
-            rectOne.left > rectTwo.right || 
-            rectOne.bottom < rectTwo.top || 
-            rectOne.top > rectTwo.bottom
+    checkCollision(obj1, obj2) {
+        let rect1 = obj1.getBoundingClientRect();
+        let rect2 = obj2.getBoundingClientRect();
+        return (
+            rect1.left < rect2.right &&
+            rect1.right > rect2.left &&
+            rect1.top < rect2.bottom &&
+            rect1.bottom > rect2.top
         );
     }
 
@@ -121,10 +123,12 @@ export class Player {
         // image.classList.add('explosion_spriteSheet');
         explosion.appendChild(image);
 
+
+
         //por si acaso
         setTimeout(() => {
             explosion.remove();
         }, 600);
     }
 
-};
+}
