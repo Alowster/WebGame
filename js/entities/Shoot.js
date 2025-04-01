@@ -35,6 +35,7 @@ function bulletDelete(bullet) {
             createExplosion(bullet);
             bullet.remove();
         }
+
     }, 20); 
 }
 

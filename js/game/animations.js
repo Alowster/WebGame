@@ -5,6 +5,7 @@ function createExplosion(bullet) {
     console.log("createExplosio");
     const explosion = document.createElement('div');
     explosion.classList.add('explosion');
+    explosion.id = 'explosion';
     pantalla.appendChild(explosion);
 
     explosion.style.position = 'absolute';

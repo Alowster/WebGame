@@ -37,7 +37,7 @@ function animate() {
     let nextX = jugadorX + dx;
     let nextY = jugadorY + dy;
 
-    // Evitar salir de los bordes de la pantalla
+
     if (nextX < -10) {
         nextX = -10
     }

@@ -89,7 +89,6 @@ img {
     position: absolute;
     transform: translate3d(-50%,-70%,0);
     overflow: hidden;
-    /* background-color: rgba(255, 0, 0, 0.50); */
 }
 
 .explosion_spriteSheet {
@@ -132,25 +131,6 @@ img {
 
 }
 
-/* @keyframes enemyRight  {
-    from {
-        transform: translateX(0%);
-    }to {
-        transform: translateX(-450%);
-    }to {
-        transform: translateX(-2000%);
-    }
-}
-
-@keyframes enemyLeft  {
-    from {
-        transform: translateX(0%);
-    }to {
-        transform: translateX(450%);
-    }to {
-        transform: translateX(900%);
-    }
-} */
 
 @keyframes explosion  {
     from {
