@@ -1,18 +1,8 @@
-function checkCollision(elementOne, elementTwo) { 
-    const rectOne = elementOne.getBoundingClientRect();
-    const rectTwo = elementTwo.getBoundingClientRect();
-    return !(
-        rectOne.right < rectTwo.left || 
-        rectOne.left > rectTwo.right || 
-        rectOne.bottom < rectTwo.top || 
-        rectOne.top > rectTwo.bottom
-    );
-}
+import {Player} from '../entities/Player.js';
+import {Enemy} from '../entities/Enemy.js';
 
-function keyPress () {
-    if(keys['e'] || keys['E']) {
-        shoot();
-    }
-}
+let player = new Player();
+let enemy = new Enemy();
 
-setInterval(keyPress, 600);
+player.animate();
+player.shoot();
