@@ -12,48 +12,80 @@ export class Enemy {
         this.enemy.style.width = '50px';
         this.enemy.style.height = '50px';
 
-        this.enemySide = this.randomEnemy(enemy);
+        this.enemySide = this.randomEnemy(this.enemy);
     
-        this.pantalla.appendChild(enemy);
+        this.pantalla.appendChild(this.enemy);
 
-        this.moveEnemy(enemy, 0.6);
+        this.moveEnemy(this.enemy, 2);
+
+    }
+
+    resetPosition(enemy, enemyVelocity) {
+        if (this.enemySide === 1) {
+            enemy.style.left = "-100px";  
+            // enemy.style.visibility = "hidden";  
+    
+            setTimeout(() => {
+                console.log("Enemigo reaparece.");
+                enemy.style.left = "0%";
+
+                // enemy.style.visibility = "visible";  
+                this.randomEnemy(enemy);
+                this.moveEnemy(enemy, enemyVelocity);
+            }, this.numeroAleatorio()*1000);
+        
+        } else if (this.enemySide === 2) {
+            enemy.style.left = "105%";  
+            // enemy.style.visibility = "hidden";
+
+            setTimeout(() => {
+                console.log("Enemigo reaparece.");
+                enemy.style.left = "97%";
+                // enemy.style.visibility = "visible";
+                this.randomEnemy(enemy);
+                this.moveEnemy(enemy, enemyVelocity);
+            }, this.numeroAleatorio()*1000);
+        }
 
     }
 
     moveEnemy(enemy, enemyVelocity) {
-        let enemyPos = parseFloat(getComputedStyle(enemy).left);
+        
+        var enemyPos = parseFloat(getComputedStyle(enemy).left);
 
-        if (enemySide === 1) {
+        if (this.enemySide === 1) {
             enemy.style.left = (enemyPos + enemyVelocity) + 'px';
-        } else if (enemySide === 2) {
+        } else if (this.enemySide === 2) {
             enemy.style.left = (enemyPos - enemyVelocity) + 'px';
         }
         
-        if (checkCollision(enemy, castillo)) {
-            enemy.remove();
-            console.log('Enemigo eliminado al chocar con el castillo');
+        if (this.checkCollision(enemy, castillo)) {
+            console.log("Enemigo ha chocado con el castillo.");
+    
+            this.resetPosition(enemy, enemyVelocity);
+    
         } else {
-            requestAnimationFrame(moveEnemy);
+            requestAnimationFrame(() => this.moveEnemy(enemy, enemyVelocity));
         }
-
+        
     }
 
     randomEnemy(enemy) {
         var caseNum = this.numeroAleatorio();
-        let enemySide;
+        this.enemySide;
     
         switch (caseNum) {
             case 1:
             case 3:
                 enemy.classList.add('enemyLeft','enemigo');
                 enemy.style.left = '0px';
-                enemySide = 1;
+                this.enemySide = 1;
                 break;
             case 2:
             case 4:
                 enemy.classList.add('enemyRight','enemigo');
                 enemy.style.left = '97%';
-                enemySide = 2;
+                this.enemySide = 2;
                 break;
         }
     
@@ -68,7 +100,7 @@ export class Enemy {
                 break;
         }
     
-        return enemySide;
+        return this.enemySide;
     }
 
     numeroAleatorio() {

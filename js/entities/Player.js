@@ -72,7 +72,7 @@ export class Player {
 
                 function moveBullet() {
                     let topPos = parseInt (bullet.style.top) || 0;
-                    bullet.style.top = (topPos + 2.5) + 'px'; //2.5 vel bala
+                    bullet.style.top = (topPos + 3) + 'px'; //2.5 vel bala
                     requestAnimationFrame(moveBullet);
                 }
                 requestAnimationFrame(moveBullet);
@@ -120,7 +120,7 @@ export class Player {
         // image.src = 'assets/boomSpriteSheet.png';
         // image.classList.add('explosion_spriteSheet');
         explosion.appendChild(image);
-        
+
         //por si acaso
         setTimeout(() => {
             explosion.remove();
