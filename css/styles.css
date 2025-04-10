@@ -65,6 +65,13 @@ img {
     image-rendering: pixelated;
 }
 
+#contador1 {
+    margin-left: 20px;
+    position: absolute;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(197, 255, 111);
+}
+
 .bullet {
     width: 20px;
     height: 20px;
@@ -90,7 +97,7 @@ img {
     position: absolute;
     transform: translate3d(-50%,-70%,0);
     overflow: hidden;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 .explosion_spriteSheet {

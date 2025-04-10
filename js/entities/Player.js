@@ -1,3 +1,5 @@
+import { Enemy } from "./Enemigo.js";
+
 export class Player {
     constructor() {
         this.jugador = document.getElementById('jugador');
@@ -6,9 +8,9 @@ export class Player {
         this.jugadorSprite = document.getElementById('jugador_spriteSheet');
         this.jugadorX = 820;
         this.jugadorY = 200;
-
-        this.speedx = 3;
-        this.speedy = 2;
+        this.contador1 = document.getElementById('contador1');
+        this.speedx = 4;
+        this.speedy = 3;
 
         this.gameWidth = this.area.offsetWidth;
         this.gameHeight = this.area.offsetHeight;
@@ -19,7 +21,12 @@ export class Player {
         document.addEventListener('keydown', (e) => this.keys[e.key] = true);
         document.addEventListener('keyup', (e) => this.keys[e.key] = false);
 
-
+        this.enemigos = [];
+        this.numKills = 0;
+    }
+    
+    setEnemigos(_enemigos) {
+        this.enemigos = _enemigos;
     }
 
     animate() {
@@ -63,7 +70,7 @@ export class Player {
         setInterval(() => {
             if (this.keys['e']) {
 
-                console.log("Disparando...")
+                // console.log("Disparando...")
                 const bullet = document.createElement('div');
                 bullet.classList.add('bullet');
 
@@ -89,7 +96,7 @@ export class Player {
     bulletDelete(bullet) {
         setInterval(() => {
             if (this.checkCollision(bullet, this.collider)) {
-                console.log("¡Colisión detectada!");
+                // console.log("¡Colisión detectada!");
                 this.createExplosion(bullet);
                 
                 bullet.remove();
@@ -125,7 +132,13 @@ export class Player {
         image.classList.add('explosion_spriteSheet');
         explosion.appendChild(image);
 
-        
+        this.enemigos.forEach(element => {
+            if (this.checkCollision(explosion, element.enemy)) {
+                element.resetPosition(element.enemy, element.enemyVelocity);
+                this.numKills+=1;
+                this.contador1.textContent = "ENEMIGOS ABATIDOS: " + this.numKills;
+            }
+        });
 
         //por si acaso
         setTimeout(() => {

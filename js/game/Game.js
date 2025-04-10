@@ -1,11 +1,9 @@
 import {Player} from '../entities/Player.js';
 import {Enemy} from '../entities/Enemigo.js';
 
+
 let enemigos = [];
 
-let player = new Player();
-player.animate();
-player.shoot();
 
 function createEnemy(delay) {
     setTimeout(() => {
@@ -19,3 +17,9 @@ createEnemy(4000);
 createEnemy(5000);
 createEnemy(6000);
 createEnemy(7000);
+
+let player = new Player();
+player.animate();
+player.shoot();
+
+player.setEnemigos(enemigos);

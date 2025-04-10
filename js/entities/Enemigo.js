@@ -27,7 +27,7 @@
             enemy.style.visibility = "hidden";  
     
             setTimeout(() => {
-                console.log("Enemigo reaparece.");
+                // console.log("Enemigo reaparece.");
                 enemy.style.left = "0%";
 
                 enemy.style.visibility = "visible";  
@@ -40,7 +40,7 @@
             enemy.style.visibility = "hidden";
 
             setTimeout(() => {
-                console.log("Enemigo reaparece.");
+                // console.log("Enemigo reaparece.");
                 enemy.style.left = "97%";
                 enemy.style.visibility = "visible";
                 this.randomEnemy(enemy);
@@ -61,8 +61,8 @@
         }
         
         if (this.checkCollision(enemy, this.castillo)) {
-            console.log("Enemigo ha chocado con el castillo.");
-    
+            // console.log("Enemigo ha chocado con el castillo.");
+            
             this.resetPosition(enemy, enemyVelocity);
             
         }else{
