@@ -93,16 +93,16 @@
     
         switch (this.numeroAleatorio()) {
             case 1:
-                this.enemy.src = "https://github.com/Alowster/img/blob/main/tanqueTwo.png";
+                this.enemy.src = "https://raw.githubusercontent.com/Alowster/img/refs/heads/main/tanqueTwo.png";
                 break;
             case 3:
-                this.enemy.src = "https://github.com/Alowster/img/blob/main/furgoOne.png";
+                this.enemy.src = "https://raw.githubusercontent.com/Alowster/img/refs/heads/main/furgoOne.png";
                 break;
             case 2:
-                this.enemy.src = "https://github.com/Alowster/img/blob/main/tanqueOne.png";
+                this.enemy.src = "https://raw.githubusercontent.com/Alowster/img/refs/heads/main/tanqueOne.png";
                 break;
             case 4:
-                this.enemy.src = "https://github.com/Alowster/img/blob/main/furgoTwo.png";
+                this.enemy.src = "https://raw.githubusercontent.com/Alowster/img/refs/heads/main/furgoTwo.png";
                 break;
         }
     
