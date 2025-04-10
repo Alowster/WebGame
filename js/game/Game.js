@@ -11,12 +11,12 @@ function createEnemy(delay) {
     }, delay);
 }
 
-createEnemy(2000);
-createEnemy(3000);
+createEnemy(1000);
 createEnemy(4000);
-createEnemy(5000);
-createEnemy(6000);
-createEnemy(7000);
+createEnemy(8000);
+createEnemy(12000);
+createEnemy(16000);
+createEnemy(24000);
 
 let player = new Player();
 player.animate();

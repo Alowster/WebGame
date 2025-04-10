@@ -128,17 +128,19 @@ img {
     height: 50px;
     left: 94.5%;
     top: 78%;
-
+    transform: rotateY(0deg);
 }
 
 .enemyLeft {
+    
     position: absolute;
     width: 100px;
     height: 50px;
     left: 0%;
     top: 78%;
-
+    transform: rotateY(180deg);
 }
+
 
 
 @keyframes explosion  {

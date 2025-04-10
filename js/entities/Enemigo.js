@@ -4,18 +4,18 @@
         this.pantalla = document.getElementById('pantalla');
         this.castillo = document.getElementById('castillo');
 
-        this.enemy = document.createElement('div');
+        this.enemy = document.createElement('img');
 
         this.enemy.style.position = 'absolute';
-        this.enemy.style.top = '83%';
-        this.enemy.style.width = '50px';
-        this.enemy.style.height = '50px';
+        this.enemy.style.top = '81%';
+        this.enemy.style.width = '100px';
+        this.enemy.style.height = '70px';
 
         this.enemySide = this.randomEnemy(this.enemy);
     
         this.pantalla.appendChild(this.enemy);
         
-        this.enemyVelocity = 0.8;
+        this.enemyVelocity = 0.1;
         this.moveEnemy(this.enemy, this.enemyVelocity);
 
     }
@@ -29,7 +29,6 @@
             setTimeout(() => {
                 // console.log("Enemigo reaparece.");
                 enemy.style.left = "0%";
-
                 enemy.style.visibility = "visible";  
                 this.randomEnemy(enemy);
                 this.moveEnemy(enemy, enemyVelocity);
@@ -43,7 +42,7 @@
                 // console.log("Enemigo reaparece.");
                 enemy.style.left = "97%";
                 enemy.style.visibility = "visible";
-                this.randomEnemy(enemy);
+                this.randomEnemy();
                 this.moveEnemy(enemy, enemyVelocity);
             }, this.numeroAleatorio()*1000);
         }
@@ -71,33 +70,39 @@
         
     }
 
-    randomEnemy(enemy) {
+    randomEnemy() {
         var caseNum = this.numeroAleatorio();
         this.enemySide;
     
         switch (caseNum) {
             case 1:
             case 3:
-                enemy.classList.add('enemyLeft','enemigo');
-                enemy.style.left = '0px';
+                this.enemy.classList.remove('enemyRight');
+                this.enemy.classList.add('enemyLeft');
+                this.enemy.style.left = '0%';
                 this.enemySide = 1;
                 break;
             case 2:
             case 4:
-                enemy.classList.add('enemyRight','enemigo');
-                enemy.style.left = '97%';
+                this.enemy.classList.remove('enemyLeft');
+                this.enemy.classList.add('enemyRight');
+                this.enemy.style.left = '94.5%'; //mejor no preguntar
                 this.enemySide = 2;
                 break;
         }
     
-        switch (caseNum) {
+        switch (this.numeroAleatorio()) {
             case 1:
+                this.enemy.src = "../assets/tanque2.png";
+                break;
             case 3:
-                enemy.style.backgroundColor = 'red';
+                this.enemy.src = "../assets/furgo1.png";
                 break;
             case 2:
+                this.enemy.src = "../assets/tanque1.png";
+                break;
             case 4:
-                enemy.style.backgroundColor = 'blue';
+                this.enemy.src = "../assets/furgo2.png";
                 break;
         }
     

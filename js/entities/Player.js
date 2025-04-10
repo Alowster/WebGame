@@ -81,7 +81,7 @@ export class Player {
 
                 function moveBullet() {
                     let topPos = parseInt (bullet.style.top) || 0;
-                    bullet.style.top = (topPos + 3) + 'px'; //3 vel bala
+                    bullet.style.top = (topPos + 3.6) + 'px'; //3 vel bala
 
 
                     requestAnimationFrame(moveBullet);
@@ -89,7 +89,7 @@ export class Player {
                 requestAnimationFrame(moveBullet);
                 this.bulletDelete(bullet);
             }
-        }, 600);
+        }, 400);
 
     }
 
