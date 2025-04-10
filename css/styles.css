@@ -42,7 +42,7 @@ body {
     position: absolute;
     width: calc(40px * var(--jugador-size));
     height: calc(20px * var(--jugador-size));
-    background-color: red;
+    /* background-color: red; */
     z-index: 1;
     overflow:hidden ;
 }

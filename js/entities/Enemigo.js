@@ -1,4 +1,4 @@
-export class Enemy {
+    export class Enemy {
     constructor() {
         
         this.pantalla = document.getElementById('pantalla');
@@ -14,11 +14,12 @@ export class Enemy {
         this.enemySide = this.randomEnemy(this.enemy);
     
         this.pantalla.appendChild(this.enemy);
-
+        
         this.enemyVelocity = 0.8;
         this.moveEnemy(this.enemy, this.enemyVelocity);
 
     }
+
 
     resetPosition(enemy, enemyVelocity) {
         if (this.enemySide === 1) {
@@ -50,7 +51,7 @@ export class Enemy {
     }
 
     moveEnemy(enemy, enemyVelocity) {
-        
+
         var enemyPos = parseFloat(getComputedStyle(enemy).left);
 
         if (this.enemySide === 1) {
@@ -63,8 +64,8 @@ export class Enemy {
             console.log("Enemigo ha chocado con el castillo.");
     
             this.resetPosition(enemy, enemyVelocity);
-    
-        } else {
+            
+        }else{
             requestAnimationFrame(() => this.moveEnemy(enemy, enemyVelocity));
         }
         

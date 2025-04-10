@@ -1,11 +1,9 @@
-
-
 export class Player {
     constructor() {
         this.jugador = document.getElementById('jugador');
         this.area = document.getElementById('pantalla');
         this.collider = document.getElementById("ground");
-
+        this.jugadorSprite = document.getElementById('jugador_spriteSheet');
         this.jugadorX = 820;
         this.jugadorY = 200;
 
@@ -21,6 +19,7 @@ export class Player {
         document.addEventListener('keydown', (e) => this.keys[e.key] = true);
         document.addEventListener('keyup', (e) => this.keys[e.key] = false);
 
+
     }
 
     animate() {
@@ -30,9 +29,11 @@ export class Player {
         // Rotar la nave
         if (this.keys['ArrowLeft']) {
             dx -= this.speedx;
+            this.helicopterLeft();
         }
         if (this.keys['ArrowRight']) {
             dx += this.speedx;
+            this.helicopterRight();
         }
         if (this.keys['ArrowUp']) {
             dy -= this.speedy;
@@ -90,6 +91,7 @@ export class Player {
             if (this.checkCollision(bullet, this.collider)) {
                 console.log("¡Colisión detectada!");
                 this.createExplosion(bullet);
+                
                 bullet.remove();
             }
             
@@ -119,16 +121,35 @@ export class Player {
         explosion.style.top = bullet.style.top;
         
         const image = document.createElement('img');
-        // image.src = 'assets/boomSpriteSheet.png';
-        // image.classList.add('explosion_spriteSheet');
+        image.src = 'assets/boomSpriteSheet.png';
+        image.classList.add('explosion_spriteSheet');
         explosion.appendChild(image);
 
-
+        
 
         //por si acaso
         setTimeout(() => {
             explosion.remove();
         }, 600);
     }
-
+ 
+    helicopterRight(){
+            this.cambiarAnimacion('rotateRight');
+    
+            this.jugadorSprite.classList.remove('jugador_left_spriteSheet');
+            this.jugadorSprite.classList.add('jugador_right_spriteSheet');
+    
+    }
+    
+    helicopterLeft(){
+        this.cambiarAnimacion('rotateLeft');
+    
+        this.jugadorSprite.classList.remove('jugador_right_spriteSheet');
+        this.jugadorSprite.classList.add('jugador_left_spriteSheet');
+    
+    }
+    
+    cambiarAnimacion(animacion) {
+        this.jugadorSprite.style.animationName = animacion;
+    }    
 }
