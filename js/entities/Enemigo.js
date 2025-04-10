@@ -93,16 +93,16 @@
     
         switch (this.numeroAleatorio()) {
             case 1:
-                this.enemy.src = "../assets/tanque2.png";
+                this.enemy.src = "../assets/tanqueTwo.png";
                 break;
             case 3:
-                this.enemy.src = "../assets/furgo1.png";
+                this.enemy.src = "../assets/furgoOne.png";
                 break;
             case 2:
-                this.enemy.src = "../assets/tanque1.png";
+                this.enemy.src = "../assets/tanqueOne.png";
                 break;
             case 4:
-                this.enemy.src = "../assets/furgo2.png";
+                this.enemy.src = "../assets/furgoTwo.png";
                 break;
         }
     
