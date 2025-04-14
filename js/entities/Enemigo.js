@@ -1,6 +1,8 @@
-    export class Enemy {
-    constructor() {
-        
+export class Enemy {
+    constructor(vidaCastilloRef, barraVidaRef) {
+        this.vidaCastilloRef = vidaCastilloRef;
+        this.barraVidaRef = barraVidaRef;
+
         this.pantalla = document.getElementById('pantalla');
         this.castillo = document.getElementById('castillo');
 
@@ -12,30 +14,28 @@
         this.enemy.style.height = '70px';
 
         this.enemySide = this.randomEnemy(this.enemy);
-    
         this.pantalla.appendChild(this.enemy);
-        
+
         this.enemyVelocity = 0.1;
         this.moveEnemy(this.enemy, this.enemyVelocity);
-
     }
 
 
     resetPosition(enemy, enemyVelocity) {
         if (this.enemySide === 1) {
-            enemy.style.left = "-100px";  
-            enemy.style.visibility = "hidden";  
-    
+            enemy.style.left = "-100px";
+            enemy.style.visibility = "hidden";
+
             setTimeout(() => {
                 // console.log("Enemigo reaparece.");
                 enemy.style.left = "0%";
-                enemy.style.visibility = "visible";  
+                enemy.style.visibility = "visible";
                 this.randomEnemy(enemy);
                 this.moveEnemy(enemy, enemyVelocity);
-            }, this.numeroAleatorio()*1000);
-        
+            }, this.numeroAleatorio() * 1000);
+
         } else if (this.enemySide === 2) {
-            enemy.style.left = "105%";  
+            enemy.style.left = "105%";
             enemy.style.visibility = "hidden";
 
             setTimeout(() => {
@@ -44,13 +44,12 @@
                 enemy.style.visibility = "visible";
                 this.randomEnemy();
                 this.moveEnemy(enemy, enemyVelocity);
-            }, this.numeroAleatorio()*1000);
+            }, this.numeroAleatorio() * 1000);
         }
 
     }
 
     moveEnemy(enemy, enemyVelocity) {
-
         var enemyPos = parseFloat(getComputedStyle(enemy).left);
 
         if (this.enemySide === 1) {
@@ -58,22 +57,23 @@
         } else if (this.enemySide === 2) {
             enemy.style.left = (enemyPos - enemyVelocity) + 'px';
         }
-        
+
         if (this.checkCollision(enemy, this.castillo)) {
-            // console.log("Enemigo ha chocado con el castillo.");
-            
+            if (this.vidaCastilloRef.valor > 0) {
+                this.vidaCastilloRef.valor -= 1;
+                this.barraVidaRef.style.width = this.vidaCastilloRef.valor + "%";
+            }
+
             this.resetPosition(enemy, enemyVelocity);
-            
-        }else{
+        } else {
             requestAnimationFrame(() => this.moveEnemy(enemy, enemyVelocity));
         }
-        
     }
 
     randomEnemy() {
         var caseNum = this.numeroAleatorio();
         this.enemySide;
-    
+
         switch (caseNum) {
             case 1:
             case 3:
@@ -90,7 +90,7 @@
                 this.enemySide = 2;
                 break;
         }
-    
+
         switch (this.numeroAleatorio()) {
             case 1:
                 this.enemy.src = "https://raw.githubusercontent.com/Alowster/img/refs/heads/main/tanqueTwo.png";
@@ -105,7 +105,7 @@
                 this.enemy.src = "https://raw.githubusercontent.com/Alowster/img/refs/heads/main/furgoTwo.png";
                 break;
         }
-    
+
         return this.enemySide;
     }
 
